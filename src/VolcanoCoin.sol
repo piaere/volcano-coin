@@ -5,8 +5,9 @@ pragma solidity ^0.8;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract volcanoCoin is Ownable {
-    uint256 public totalSupply = 10000;
-    address Owner;
+    uint public totalSupply = 10000;
+    uint constant increment = 1000;
+    address public Owner;
 
     constructor() {
         Owner = owner();
@@ -31,7 +32,7 @@ contract volcanoCoin is Ownable {
     }
 
     function increaseTotalSupply() public onlyOwner {
-        totalSupply += 1000;
+        totalSupply += increment;
         emit newTotalSupply(totalSupply);
     }
 
