@@ -11,14 +11,12 @@ contract volcanoCoinTest is Test {
 
     uint private expectedSupply = 10000;
     address private owner;
-    address private alice;
-    address private bob;
+    address private alice = 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2;
+    address private bob = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
 
     function setUp() public {
         volcano = new volcanoCoin();
         owner = volcano.Owner();
-        bob = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
-        alice = 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2;
     }
 
     function testTotalySupply() public {
@@ -39,15 +37,18 @@ contract volcanoCoinTest is Test {
     function testOwner() public {
         vm.prank(owner);
         volcano.increaseTotalSupply();
+        emit log_named_address("sender is", msg.sender);
     }
 
     function testBob() public {
         vm.prank(bob);
+        emit log_named_address("sender is", msg.sender);
         volcano.increaseTotalSupply();
     }
 
     function testAlice() public {
         vm.prank(alice);
+        emit log_named_address("sender is", msg.sender);
         volcano.increaseTotalSupply();
     }
 }
