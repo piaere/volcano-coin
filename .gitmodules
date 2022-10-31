@@ -1,3 +1,4 @@
 [submodule "lib/openzeppelin-contracts"]
 	path = lib/openzeppelin-contracts
 	url = https://github.com/Openzeppelin/openzeppelin-contracts
+	remappings = ["@openzeppelin/=lib/openzeppelin-contracts/"]
